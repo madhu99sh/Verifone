@@ -1,13 +1,10 @@
 1. Layers in Clean Architecture
 UI (Compose)
-│
-▼
+
 Presentation (ViewModel)
-│
-▼
+
 Domain (UseCase)
-│
-▼
+
 Data (Repository → RemoteDataSource)
 
 
