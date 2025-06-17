@@ -1,4 +1,4 @@
-1. Layers in Clean Architecture
+Layers in Clean Architecture
 UI (Compose)
 
 Presentation (ViewModel)
@@ -44,19 +44,18 @@ Observes ViewModel’s StateFlow and recomposes the product list.
 Sequence Diagram (Debounced Search)
 
 [Product]
-  ↓ types text
 [Compose UI]
-  ↓ calls viewModel.onQueryChanged(text)
+  calls viewModel.onQueryChanged(text)
 [ViewModel]
-  ↓ emits to queryFlow
-  → debounce(300ms), distinctUntilChanged
-  → cancel previous → call UseCase
+  emits to queryFlow
+  debounce(300ms), distinctUntilChanged
+  cancel previous → call UseCase
 [UseCase]
-  → call repository.searchProducts(query, limit, skip)
+  call repository.searchProducts(query, limit, skip)
 [Repository]
-  → perform API call
-  ← returns result
+  perform API call
+  returns result
 [ViewModel]
-  → updates UI state
+  updates UI state
 [Compose UI]
-  ← displays new list
+  displays new list
