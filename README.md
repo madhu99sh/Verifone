@@ -44,18 +44,25 @@ Observes ViewModel’s StateFlow and recomposes the product list.
 Sequence Diagram (Debounced Search)
 
 [Product]
+
 [Compose UI]
   calls viewModel.onQueryChanged(text)
+  
 [ViewModel]
   emits to queryFlow
   debounce(300ms), distinctUntilChanged
   cancel previous → call UseCase
+  
 [UseCase]
   call repository.searchProducts(query, limit, skip)
+  
 [Repository]
   perform API call
   returns result
+
 [ViewModel]
   updates UI state
+
+  
 [Compose UI]
   displays new list
